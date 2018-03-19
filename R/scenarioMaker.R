@@ -1,0 +1,59 @@
+#' scenarioMaker: A package for reconstructing sensor system tests and calculating helpful comparisons
+#'
+#' Hello and welcome to scenarioMaker, your first stop in the battleVerse!  scenarioMaker is a package designed to help you analyze sensor system performance by providing plots to reconstruct tests and calculators to find distances between targets, target aspects, much more.
+#'
+#' scenarioMaker takes real-space positions of the sensor system and the targets in the test as well as the sensor-recorded positions of those targets.  From these, it automatically calculates distance between targets, tracks, and the sensor system.  These can be used in our event reconstruction figures.  See the section on plotting functions below for more details.
+#'
+#' Note that scenarioMaker DOES NOT contain the tools to compare sensor system tracks.  This functionality is contained within another package, nautilus.  Check out nautilus next to assign tracks to targets and evaluate performance more quantitatively with metrics like track coverage/continuity and detection range.  But keep in mind: you will to create a scenario in scenarioMaker first to use the tools in nautilus.  So again: welcome!  You've come to the right place.
+#'
+#' To get started, we recommend looking at the function \link{create_scenario}.  create_scenario() will create a names list of all the input data and will automaticall calculate the distance between the sensor system and targets at the times that positions were recorded.  Many users also find the function \link{distance_between} helpful to calculate distance between targets at specified times that may be different from when position measurements were recorded but are useful nonetheless.  For example, it may be helpful to know how far apart two targets were when a shot was fired at some time, t.  distance_between() will let you calculate this.
+#'
+#'
+#' @section Data transformation tools:
+#'
+#' There are several 'helper' functions designed to help you convert your data into the lat/lon/alt format Nautilus requires:
+#'
+#' \itemize{
+#'  \item{\code{\link{transform_offset_to_latlon}} Converts data in a north/east/up format (measured from the sensor) to lat/lon/alt}
+#'  \item{\code{\link{transform_bearing_range_to_latlon}} Converts data in a bearing/range/up format (measured from the sensor) to lat/lon/alt}
+#'  \item{\code{\link{transform_sensor_bias}} Intended for when sensor systems have a systematic bias in bearing, range, or altitude.  Changes lon/lat/alt positions of sensor points based on user-specified amounts.}
+#'  \item{\code{\link{get_heading}} Estimates heading of target or ownship}
+#' }
+#'
+#' Note also that if you have data in SIMDIS format, you can import it to scenarioMaker using our related package, sandTable.
+#'
+#'
+#' @section Plotting Functions:
+#'
+#' scenarioMaker has several plotting functions for event reconstruction, most of which are avaiable in both ggplot and plotly formats:
+#'
+#' \itemize{
+#' \item{ \code{\link{plot_distance_data}} }
+#' \item{ \code{\link{plot_distance_data_plotly}} }
+#' \item{ \code{\link{plot_relative_truth_and_sensor}} }
+#' \item{ \code{\link{plot_relative_truth_and_sensor_plotly}} }
+#' \item{ \code{\link{plot_sensor_and_truth_data}} }
+#' \item{ \code{\link{plot_sensor_and_truth_data_plotly}} }
+#' \item{ \code{\link{plot_sensor_and_truth_data_with_altitude}} }
+#' \item{ \code{\link{plot_truth_data_plotly}} }
+#' \item{ \code{\link{plot_truth_data}} }
+#' \item{ \code{\link{plot_truth_data_plotly}} }
+#' \item{ \code{\link{plot_truth_gaps}} }
+#' }
+#'
+#'
+#'
+#' @section Summary Table Functions:
+#' scenarioMaker has several functions that return helpful tables of information:
+#' \itemize{
+#' \item{ \code{\link{summarize_time_exists}} }
+#' \item{ \code{\link{summarize_truth_gaps}} }
+#' }
+#'
+#' @docType package
+#' @name scenarioMaker
+#'
+
+
+
+NULL
