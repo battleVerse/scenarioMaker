@@ -17,7 +17,12 @@
 #' @export
 #'
 #' @examples
-#' plot_truth_data(example1_scenario, offset = 0.01, textSize = 3, hideLegend = FALSE, useDefaultColors = FALSE)
+#' plot_truth_data(
+#'  scenario=example1_scenario,
+#'  offset = 0.01,
+#'  textSize = 3,
+#'  hideLegend = FALSE,
+#'  useDefaultColors = FALSE)
 
 
 # a few functions to help with plotting
@@ -65,7 +70,7 @@ plot_truth_data = function(scenario, offset = 0.01, textSize = 3, hideLegend = F
     }
 
     defaultPlatColors=viridis::viridis(length(listOfIDs))
-    colorNames = scenarioMaker:::get_named_colors(scenario, listOfIDs, defaultPlatColors,
+    colorNames = get_named_colors(scenario, listOfIDs, defaultPlatColors,
                                                   useDefaultColors = useDefaultColors)
     myPlot = myPlot + scale_color_manual(values=colorNames)
 

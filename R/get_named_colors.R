@@ -6,7 +6,7 @@
 #' @param scenario must contain either or both: targetTruth, ownShipTruth
 #' @param idList list of truthIDs or trackNums
 #' @param defaultColorList list of default colors - must be as long as idList and in the same order (if you care)!
-
+#' @param useDefaultColors if true, this function uses default color scheme (rather than colors in platformInfo). This has no effect if platformInfo is not present in the scenario (b/c we have to use default colors anyway)  (default=FALSE)
 #'
 #' @return plotly object
 #'
@@ -36,7 +36,7 @@ get_named_colors = function(scenario, idList, defaultColorList, useDefaultColors
 
     }
     # make the named list
-    colorNames=setNames(truthColors$targetColor,as.factor(truthColors$truthID))
+    colorNames=stats::setNames(truthColors$targetColor,as.factor(truthColors$truthID))
     return(colorNames)
 
 }

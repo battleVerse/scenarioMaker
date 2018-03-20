@@ -17,5 +17,10 @@ export_scenario_to_csv(scenario, saveLocation, saveName = NULL)
 Export contents of scenario to csv.  Each data frame in the list is saved as a separate .csv
 }
 \examples{
-\dontrun{export_scenario_to_csv(example1_scenario,saveLocation="C:/Documents/analysis/", saveName="testPeriod1")}
+\dontrun{
+To use this function, simply enter a valid path for 'saveLocation'
+export_scenario_to_csv(example1_scenario,
+ saveLocation="C:/Documents/analysis/",
+ saveName="testPeriod1")
+}
 }

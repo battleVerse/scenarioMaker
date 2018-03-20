@@ -229,7 +229,7 @@ target_ownship_distance <- function(truthData, ownShipData){
     }
 
     #combine the different entries
-    targetOwnshipDistance=na.omit(do.call(rbind,tempList))
+    targetOwnshipDistance=stats::na.omit(do.call(rbind,tempList))
 
     return(targetOwnshipDistance)
 }

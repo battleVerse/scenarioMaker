@@ -107,8 +107,8 @@ track_ownship_distance <- function(sensorData, ownShipData){
 
 
     # figure out the distance (in meters) between where the sensor THOUGHT the target was and where it REALLY was
-    trackXYZ <- scenarioMaker:::lla_to_xyz(sensorData$lon, sensorData$lat, sensorData$alt)
-    ownShipXYZ <- scenarioMaker:::lla_to_xyz(interpOwnShipLon, interpOwnShipLat, interpOwnShipAlt)
+    trackXYZ <- lla_to_xyz(sensorData$lon, sensorData$lat, sensorData$alt)
+    ownShipXYZ <- lla_to_xyz(interpOwnShipLon, interpOwnShipLat, interpOwnShipAlt)
 
     # range to ship is based on truth data and own ship data
     slantRange <- sqrt( (trackXYZ[[1]] - ownShipXYZ[[1]])^2 +

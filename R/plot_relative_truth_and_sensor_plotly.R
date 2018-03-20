@@ -73,29 +73,29 @@ plot_relative_truth_and_sensor_plotly = function(scenario, offset = 1, textSize 
 
     # get fancy new colors
     defaultPlatColors = viridis::viridis(length(listOfIDs))
-    colorNames = scenarioMaker:::get_named_colors(scenario,
-                                                  listOfIDs,
-                                                  defaultPlatColors,
-                                                  useDefaultColors = useDefaultColors)
+    colorNames = get_named_colors(scenario,
+                                  listOfIDs,
+                                  defaultPlatColors,
+                                  useDefaultColors = useDefaultColors)
 
 
 
 
     myPlot = plotly::plot_ly(data = thisPlotData,
-                     type = 'scatter',
-                     mode = 'markers',
-                     r = ~slantRange,
-                     t = ~bearing,
-                     color = ~targetOrTrackID,
-                     colors = colorNames,
-                     alpha = 0.5,
-                     hoverinfo = 'text',
-                     text = ~paste('Relative Distance',
-                                 '<br>Time: ', as.POSIXct(time,tz="UTC",origin="1970-01-01"),
-                                 '<br>Target Name: ',targetOrTrackID,
-                                 '<br>Distance to Sensor (m): ',round(slantRange,2),
-                                 '<br>Bearing (deg):', round(bearing,2)),
-                     visible = ifelse(legendOnly, 'legendonly', TRUE)) %>%
+                             type = 'scatter',
+                             mode = 'markers',
+                             r = ~slantRange,
+                             t = ~bearing,
+                             color = ~targetOrTrackID,
+                             colors = colorNames,
+                             alpha = 0.5,
+                             hoverinfo = 'text',
+                             text = ~paste('Relative Distance',
+                                           '<br>Time: ', as.POSIXct(time,tz="UTC",origin="1970-01-01"),
+                                           '<br>Target Name: ',targetOrTrackID,
+                                           '<br>Distance to Sensor (m): ',round(slantRange,2),
+                                           '<br>Bearing (deg):', round(bearing,2)),
+                             visible = ifelse(legendOnly, 'legendonly', TRUE)) %>%
         plotly::layout(orientation = -90)
 
 

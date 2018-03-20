@@ -13,7 +13,12 @@
 #'
 #'
 #' @examples
-#' \dontrun{export_scenario_to_csv(example1_scenario,saveLocation="C:/Documents/analysis/", saveName="testPeriod1")}
+#' \dontrun{
+#' To use this function, simply enter a valid path for 'saveLocation'
+#' export_scenario_to_csv(example1_scenario,
+#'  saveLocation="C:/Documents/analysis/",
+#'  saveName="testPeriod1")
+#' }
 
 
 export_scenario_to_csv = function(scenario,saveLocation,saveName=NULL){
@@ -46,49 +51,49 @@ export_scenario_to_csv = function(scenario,saveLocation,saveName=NULL){
     ### Save targetTruth ###
     if (!any(is.na(scenario$targetTruth))){
         outName=sprintf("%s-targetTruth.csv",saveLocation)
-        write.csv(scenario$targetTruth,outName, row.names=FALSE)
+        utils::write.csv(scenario$targetTruth,outName, row.names=FALSE)
     }
 
     ### Save ownShipTruth ###
     if (!any(is.na(scenario$ownShipTruth))){
         outName=sprintf("%s-ownShipTruth.csv",saveLocation)
-        write.csv(scenario$ownShipTruth,outName, row.names=FALSE)
+        utils::write.csv(scenario$ownShipTruth,outName, row.names=FALSE)
     }
 
     ### Save sensorData ###
     if (!any(is.na(scenario$sensorData))){
         outName=sprintf("%s-sensorData.csv",saveLocation)
-        write.csv(scenario$sensorData,outName, row.names=FALSE)
+        utils::write.csv(scenario$sensorData,outName, row.names=FALSE)
     }
 
     ### Save engagementData ###
     if (!any(is.na(scenario$engagementData))){
         outName=sprintf("%s-engagementData.csv",saveLocation)
-        write.csv(scenario$engagementData,outName, row.names=FALSE)
+        utils::write.csv(scenario$engagementData,outName, row.names=FALSE)
     }
 
     ### Save platformInfo ###
     if (!any(is.na(scenario$platformInfo))){
         outName=sprintf("%s-platformInfo.csv",saveLocation)
-        write.csv(scenario$platformInfo,outName, row.names=FALSE)
+        utils:: write.csv(scenario$platformInfo,outName, row.names=FALSE)
     }
 
     ### Save targetOwnShipDistance ###
     if (!any(is.na(scenario$targetOwnShipDistance))){
         outName=sprintf("%s-targetOwnShipDistance.csv",saveLocation)
-        write.csv(scenario$targetOwnShipDistance,outName, row.names=FALSE)
+        utils::write.csv(scenario$targetOwnShipDistance,outName, row.names=FALSE)
     }
 
     ### Save trackOwnShipDistance ###
     if (!any(is.na(scenario$trackOwnShipDistance))){
         outName=sprintf("%s-trackOwnShipDistance.csv",saveLocation)
-        write.csv(scenario$trackOwnShipDistance,outName, row.names=FALSE)
+        utils::write.csv(scenario$trackOwnShipDistance,outName, row.names=FALSE)
     }
 
     ### Save targetTrackDistance ###
     if (!any(is.na(scenario$targetTrackDistance))){
         outName=sprintf("%s-targetTrackDistance.csv",saveLocation)
-        write.csv(scenario$targetTrackDistance,outName, row.names=FALSE)
+        utils::write.csv(scenario$targetTrackDistance,outName, row.names=FALSE)
     }
 
 

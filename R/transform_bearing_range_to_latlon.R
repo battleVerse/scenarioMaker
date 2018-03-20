@@ -40,9 +40,9 @@ transform_bearing_range_to_latlon = function(referenceData,relativeSensorData) {
         #takes range in meters, bearing in degrees
         #relativeSensorData must have time, tracknum, alt, as well as bearing and range
 
-        shipLatAtSensor=approx(referenceData$time,referenceData$lat,xout=relativeSensorData$time)$y #this is where the ship is at the time of each sensor point
-        shipLonAtSensor=approx(referenceData$time,referenceData$lon,xout=relativeSensorData$time)$y #this is where the ship is at the time of each sensor point
-        shipAltAtSensor=approx(referenceData$time,referenceData$alt,xout=relativeSensorData$time)$y #this is where the ship is at the time of each sensor point
+        shipLatAtSensor=stats::approx(referenceData$time,referenceData$lat,xout=relativeSensorData$time)$y #this is where the ship is at the time of each sensor point
+        shipLonAtSensor=stats::approx(referenceData$time,referenceData$lon,xout=relativeSensorData$time)$y #this is where the ship is at the time of each sensor point
+        shipAltAtSensor=stats::approx(referenceData$time,referenceData$alt,xout=relativeSensorData$time)$y #this is where the ship is at the time of each sensor point
 
         positions=cbind(shipLonAtSensor,shipLatAtSensor)
 

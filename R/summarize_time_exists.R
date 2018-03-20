@@ -45,3 +45,4 @@ summarize_time_exists <- function(scenario){
     return(truthStartStop)
 }
 
+

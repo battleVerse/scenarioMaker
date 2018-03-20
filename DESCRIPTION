@@ -21,8 +21,11 @@ Imports:
     iterators,
     stringr,
     ggplot2,
+    gridExtra,
     plotly,
     viridis,
     purrr,
     geosphere
 RoxygenNote: 6.0.1
+URL: https://github.com/battleVerse/scenarioMaker
+BugReports: https://github.com/battleVerse/scenarioMaker/issues

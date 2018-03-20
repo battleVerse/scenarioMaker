@@ -20,7 +20,7 @@ A list of 3 numbers where the 3 entries correspond to lon (degrees), lat (degree
 This function converts cartesian coordinates to Earth lat/lon/alt (WGS84).  Cartesian coordinates are from the center of Earth.  Meant to be used in conjunction with \code{\link{lla_to_xyz}}
 }
 \examples{
-xyz_to_lla(12000, 24000, 36000)
+scenarioMaker:::xyz_to_lla(12000, 24000, 36000)
 
 }
 \keyword{internal}

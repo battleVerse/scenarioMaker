@@ -80,6 +80,14 @@ Scenario file, which will include:
 Creates a scenario from the supplied data.  This is one of the first scenarioMaker functions that users will need and one of the most important as most of the functions take a scenario as input.  Users may supply as much of the raw data as they have, and create_scenario() will (by default) calculate as many of the target-track-ownship distances as possible.
 }
 \examples{
- myScenario = create_scenario(scenarioName="myScenario",targetTruth=example1_truthData,ownShipTruth=example1_ownShipData,sensorData=example1_sensorData,engagementData=example1_engagementData,platformInfo=example1_platformInfo,verbose=TRUE,preCalcTargetTrackDist=TRUE)
+ myScenario = create_scenario(
+  scenarioName="myScenario",
+  targetTruth=example1_truthData,
+  ownShipTruth=example1_ownShipData,
+  sensorData=example1_sensorData,
+  engagementData=example1_engagementData,
+  platformInfo=example1_platformInfo,
+  verbose=TRUE,
+  preCalcTargetTrackDist=TRUE)
 
 }

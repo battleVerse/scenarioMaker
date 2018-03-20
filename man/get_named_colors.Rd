@@ -12,6 +12,8 @@ get_named_colors(scenario, idList, defaultColorList, useDefaultColors = FALSE)
 \item{idList}{list of truthIDs or trackNums}
 
 \item{defaultColorList}{list of default colors - must be as long as idList and in the same order (if you care)!}
+
+\item{useDefaultColors}{if true, this function uses default color scheme (rather than colors in platformInfo). This has no effect if platformInfo is not present in the scenario (b/c we have to use default colors anyway)  (default=FALSE)}
 }
 \value{
 plotly object

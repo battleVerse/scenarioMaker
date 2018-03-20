@@ -53,7 +53,67 @@
 #' @docType package
 #' @name scenarioMaker
 #'
+#' @import dplyr ggplot2
 
 
 
 NULL
+
+#these are mostly columns in dataframes, but if we don't list them here, we get warnings when we build the code
+if(getRversion() >= "2.15.1")  utils::globalVariables(c("medianInterval",
+                                                        "deltaTime",
+                                                        "truthID",
+                                                        "startTime",
+                                                        "stopTime",
+                                                        "time",
+                                                        "lat",
+                                                        "lon",
+                                                        "alt",
+                                                        "badGaps",
+                                                        "laglat",
+                                                        "laglon",
+                                                        "heading1",
+                                                        "heading2",
+                                                        "slantRange",
+                                                        "trackLat",
+                                                        "trackLon",
+                                                        "xInterp",
+                                                        "yInterp",
+                                                        "zInterp",
+                                                        "# Intervals > 10x Median",
+                                                        "# Intervals > 5x Median",
+                                                        "numPoints",
+                                                        "ownShipAlt",
+                                                        "platformIcon",
+                                                        "platformType",
+                                                        "targetColor",
+                                                        "trackColor",
+                                                        "uniqueID",
+                                                        "weapon",
+                                                        "relBearingToTarget",
+                                                        "relBearingToTrack",
+                                                        "target",
+                                                        "kill",
+                                                        "ownShipLat",
+                                                        "ownShipLon",
+                                                        "ownShipTruthID",
+                                                        "trackAlt",
+                                                        "trackNum",
+                                                        "windowSize",
+                                                        "targetAlt",
+                                                        "targetLat",
+                                                        "targetLon",
+                                                        "targetTruthID",
+                                                        "myRow",
+                                                        "leadlat",
+                                                        "leadlon",
+                                                        "hoverText",
+                                                        "N",
+                                                        "p",
+                                                        "e",
+                                                        "r",
+                                                        "u",
+                                                        "v",
+                                                        "drawColor"
+                                                        ))
+

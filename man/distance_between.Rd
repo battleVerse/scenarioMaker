@@ -44,5 +44,9 @@ Get distance info between specified targets at specified times.  Users input a s
 This function may be useful if, for example, a user wanted to know how far apart all the targets were when a shot was fired at time t.  It can also be useful in the case where a user wants to know how far all targets were from Target A in the time leading up to an event around Target A.
 }
 \examples{
-distance_between(example1_scenario,timeList=c(34,75),ownShipList = c("A","B","C"),targetList = c("A","B","C","D","E"))
+distance_between(
+ scenario=example1_scenario,
+ timeList=c(34,75),
+ ownShipList = c("A","B","C"),
+ targetList = c("A","B","C","D","E"))
 }

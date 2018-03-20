@@ -25,5 +25,10 @@ ggplot object
 This figure shows an overview of the test and plots the ownship data (thin black line) and/or the truth data (solid lines). The target labels (likely characters or names) are placed above the the first point in time by an amount equal to the offset (in degrees latitude). The size of the label text is given by textSize.
 }
 \examples{
-plot_truth_data(example1_scenario, offset = 0.01, textSize = 3, hideLegend = FALSE, useDefaultColors = FALSE)
+plot_truth_data(
+ scenario=example1_scenario,
+ offset = 0.01,
+ textSize = 3,
+ hideLegend = FALSE,
+ useDefaultColors = FALSE)
 }

@@ -92,7 +92,7 @@ plot_relative_truth_and_sensor = function(scenario, offset = 1, textSize = 3, hi
 
     # get fancy new colors
     defaultPlatColors=viridis::viridis(length(listOfIDs))
-    colorNames= scenarioMaker:::get_named_colors(scenario,listOfIDs,defaultPlatColors,useDefaultColors=useDefaultColors)
+    colorNames= get_named_colors(scenario,listOfIDs,defaultPlatColors,useDefaultColors=useDefaultColors)
     myPlot = myPlot + scale_color_manual(values=colorNames)
 
 

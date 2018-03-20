@@ -61,7 +61,7 @@ verify_input_data = function(myData, columnNames,factorNames, stopOnFail=TRUE){
     }
 
     ### pull out the specified columns and see if they're factors (this step comes last for a reason - if it passed the column test, it won't crash here)
-    result=myData %>% select(factorNames) %>% sapply(.,is.factor)
+    result=myData %>% select(factorNames) %>% sapply(is.factor)
 
     if (any(!result)){ #are the specified columns actually factors?
         missingFactors=paste(factorNames[!result],collapse=', ')

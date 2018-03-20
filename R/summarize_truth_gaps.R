@@ -47,8 +47,8 @@ summarize_truth_gaps=function(scenario){
 
     #### Summarize by Target ####
     dropoutSummaryByTgt=truthLagData %>% group_by(truthID) %>%
-        summarize(medianInterval=round(median(deltaTime,na.rm=TRUE),3),
-                  stdDev=round(sd(deltaTime,na.rm=TRUE),3),
+        summarize(medianInterval=round(stats::median(deltaTime,na.rm=TRUE),3),
+                  stdDev=round(stats::sd(deltaTime,na.rm=TRUE),3),
                   "# Intervals > 2x Median" = sum( deltaTime>(2*medianInterval) & deltaTime<(5*medianInterval), na.rm=TRUE ),
                   "# Intervals > 5x Median" = sum( deltaTime>(5*medianInterval) & deltaTime<(10*medianInterval), na.rm=TRUE ),
                   "# Intervals > 10x Median" = sum(deltaTime>(10*medianInterval), na.rm=TRUE),
@@ -59,3 +59,4 @@ summarize_truth_gaps=function(scenario){
 
 
 }
+

@@ -84,7 +84,7 @@ plot_sensor_and_truth_data = function(scenario, offset = 0.01, textSize = 3,  hi
         coord_quickmap()
 
     defaultPlatColors=viridis::viridis(length(listOfIDs))
-    colorNames=scenarioMaker:::get_named_colors(scenario,listOfIDs,defaultPlatColors,useDefaultColors=useDefaultColors)
+    colorNames=get_named_colors(scenario,listOfIDs,defaultPlatColors,useDefaultColors=useDefaultColors)
     myPlot = myPlot + scale_color_manual(values=colorNames)
 
 

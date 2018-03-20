@@ -48,9 +48,9 @@ interp_ellipse <- function(dataSet, interpTimes, returnType = 'lla'){
 
         # interpolate x,y, and z.  NOTE: We are interpolating to the coerced times, but passing the actual requested times.  This way if we request a time before we have truth data it will interpolate it to the time when we have data, but return the requested time back to the user
         interpData <- data.frame(time = interpTimes,
-                                 xInterp = spline(dataSet$time, dataSet$x, xout = interpTimesCoerced)$y,
-                                 yInterp = spline(dataSet$time, dataSet$y, xout = interpTimesCoerced)$y,
-                                 zInterp = spline(dataSet$time, dataSet$z, xout = interpTimesCoerced)$y)
+                                 xInterp = stats::spline(dataSet$time, dataSet$x, xout = interpTimesCoerced)$y,
+                                 yInterp = stats::spline(dataSet$time, dataSet$y, xout = interpTimesCoerced)$y,
+                                 zInterp = stats::spline(dataSet$time, dataSet$z, xout = interpTimesCoerced)$y)
 
 
         # convert xyz back to lat, lon, alt

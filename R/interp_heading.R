@@ -19,8 +19,8 @@ interp_heading = function(currentTimes, currentHeadings, newTimes) {
     cosHeading = cos(currentHeadings * pi / 180)
     sinHeading = sin(currentHeadings * pi / 180)
 
-    interpTgtCosHeading=approx(currentTimes,cosHeading,xout=unlist(newTimes),rule=2)$y
-    interpTgtSinHeading=approx(currentTimes,sinHeading,xout=unlist(newTimes),rule=2)$y
+    interpTgtCosHeading=stats::approx(currentTimes,cosHeading,xout=unlist(newTimes),rule=2)$y
+    interpTgtSinHeading=stats::approx(currentTimes,sinHeading,xout=unlist(newTimes),rule=2)$y
     interpolatedTargetHeading <- (atan2(interpTgtSinHeading, interpTgtCosHeading) * 180/pi) %%360
 
     return(interpolatedTargetHeading)

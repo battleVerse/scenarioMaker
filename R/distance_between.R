@@ -38,7 +38,11 @@
 #' @importFrom foreach %do%
 #'
 #' @examples
-#' distance_between(example1_scenario,timeList=c(34,75),ownShipList = c("A","B","C"),targetList = c("A","B","C","D","E"))
+#' distance_between(
+#'  scenario=example1_scenario,
+#'  timeList=c(34,75),
+#'  ownShipList = c("A","B","C"),
+#'  targetList = c("A","B","C","D","E"))
 
 
 distance_between = function(scenario,timeList,ownShipList, targetList, windowScale=20){

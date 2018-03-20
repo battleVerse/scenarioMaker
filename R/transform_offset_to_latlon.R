@@ -36,6 +36,7 @@
 
 
 
+
 transform_offset_to_latlon = function(referenceData,relativeSensorData){
         #user facing
 
@@ -45,9 +46,9 @@ transform_offset_to_latlon = function(referenceData,relativeSensorData){
         }
 
         #this takes offsets in meters!
-        shipLatAtSensor=approx(referenceData$time,referenceData$lat,xout=relativeSensorData$time)$y #this is where the ship is at the time of each sensor point
-        shipLonAtSensor=approx(referenceData$time,referenceData$lon,xout=relativeSensorData$time)$y #this is where the ship is at the time of each sensor point
-        shipAltAtSensor=approx(referenceData$time,referenceData$alt,xout=relativeSensorData$time)$y #this is where the ship is at the time of each sensor point
+        shipLatAtSensor=stats::approx(referenceData$time,referenceData$lat,xout=relativeSensorData$time)$y #this is where the ship is at the time of each sensor point
+        shipLonAtSensor=stats::approx(referenceData$time,referenceData$lon,xout=relativeSensorData$time)$y #this is where the ship is at the time of each sensor point
+        shipAltAtSensor=stats::approx(referenceData$time,referenceData$alt,xout=relativeSensorData$time)$y #this is where the ship is at the time of each sensor point
 
         tmp=data.frame(geodesic_lat_long_offset(shipLatAtSensor,shipLonAtSensor,relativeSensorData$NorthOffset,relativeSensorData$EastOffset))
 
@@ -55,11 +56,13 @@ transform_offset_to_latlon = function(referenceData,relativeSensorData){
 
         sensorData=mutate(relativeSensorData,lat=tmp$latitude,lon=tmp$longitude, alt=updatedAlt) %>%
                 select(-NorthOffset, -EastOffset, -UpOffset) %>%
-            na.omit()
+            stats::na.omit()
 
         return(sensorData)
 
 }
+
+if(getRversion() >= "2.15.1")  utils::globalVariables(c("NorthOffset", "EastOffset","UpOffset"))
 
 #transform_bearing_range_to_latlon
 #user facing

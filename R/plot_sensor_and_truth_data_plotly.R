@@ -49,8 +49,8 @@ plot_sensor_and_truth_data_plotly = function(scenario, useDefaultColors=FALSE, l
                                    '<br>Slant Range to OwnShip (m): ',round(slantRange,2))
             ) %>%
             rename(lon=targetLon,lat=targetLat,uniqueID=targetTruthID) %>% #rename for joining later
-            mutate(color="blue", uniqueID=as.character(uniqueID)) %>% #color will be over-written later if we're NOT using default colors
-            select(time, lon, lat,uniqueID, hoverText, color)
+            mutate(drawColor="blue", uniqueID=as.character(uniqueID)) %>% #color will be over-written later if we're NOT using default colors
+            select(time, lon, lat,uniqueID, hoverText, drawColor)
 
 
     } else if (is.data.frame(scenario$targetTruth)){ #if you only have target truth, plot the simpler thing
@@ -61,10 +61,10 @@ plot_sensor_and_truth_data_plotly = function(scenario, useDefaultColors=FALSE, l
                                    '<br>Alt (m): ',round(alt,2))
             )%>%
             rename(uniqueID=truthID) %>% #rename for joining later
-            mutate(color="blue", uniqueID=as.character(uniqueID)) %>% #color will be over-written later if we're NOT using default colors
-            select(time, lon, lat,uniqueID, hoverText, color)
+            mutate(drawColor="blue", uniqueID=as.character(uniqueID)) %>% #color will be over-written later if we're NOT using default colors
+            select(time, lon, lat,uniqueID, hoverText, drawColor)
     } else { #if missing entirely, make empty data frame so we can 'bind_rows' later
-        targetTruth=data.frame(time=NA,lon=NA,lat=NA,uniqueID=NA,hoverText=NA,color=NA)
+        targetTruth=data.frame(time=NA,lon=NA,lat=NA,uniqueID=NA,hoverText=NA,drawColor=NA)
     }
 
     #############################
@@ -81,8 +81,8 @@ plot_sensor_and_truth_data_plotly = function(scenario, useDefaultColors=FALSE, l
                                    '<br>Slant Range to OwnShip (m): ',round(slantRange,2))
             ) %>%
             rename(uniqueID=trackNum, lon=trackLon, lat=trackLat) %>% #rename for joining later
-            mutate(color="red", uniqueID=as.character(uniqueID)) %>% #color will be over-written later if we're NOT using default colors
-            select(time, lon, lat,uniqueID, hoverText, color)
+            mutate(drawColor="red", uniqueID=as.character(uniqueID)) %>% #color will be over-written later if we're NOT using default colors
+            select(time, lon, lat,uniqueID, hoverText, drawColor)
 
     } else if (is.data.frame(scenario$sensorData)) { #if you only have sensor data, plot the simpler thing
         sensorData=scenario$sensorData %>%
@@ -93,10 +93,10 @@ plot_sensor_and_truth_data_plotly = function(scenario, useDefaultColors=FALSE, l
                                    '<br>Alt (m): ',round(alt,2))
             ) %>%
             rename(uniqueID=trackNum) %>% #rename for joining later
-            mutate(color="red", uniqueID=as.character(uniqueID)) %>% #color will be over-written later if we're NOT using default colors
-            select(time, lon, lat,uniqueID, hoverText, color)
+            mutate(drawColor="red", uniqueID=as.character(uniqueID)) %>% #color will be over-written later if we're NOT using default colors
+            select(time, lon, lat,uniqueID, hoverText, drawColor)
     } else { #if missing entirely, make empty data frame so we can 'bind_rows' later
-        sensorData=data.frame(time=NA,lon=NA,lat=NA,uniqueID=NA,hoverText=NA,color=NA)
+        sensorData=data.frame(time=NA,lon=NA,lat=NA,uniqueID=NA,hoverText=NA,drawColor=NA)
     }
 
 
@@ -111,10 +111,10 @@ plot_sensor_and_truth_data_plotly = function(scenario, useDefaultColors=FALSE, l
                                     '<br>Lon: ',round(lon,5),
                                     '<br>Alt (m): ',round(alt,2))) %>%
             rename(uniqueID=truthID) %>% #rename for joining later
-            mutate(color="black", uniqueID=as.character(uniqueID)) %>% #color will be over-written later if we're NOT using default colors
-            select(time, lon, lat,uniqueID, hoverText, color)
+            mutate(drawColor="black", uniqueID=as.character(uniqueID)) %>% #color will be over-written later if we're NOT using default colors
+            select(time, lon, lat,uniqueID, hoverText, drawColor)
     } else { #if missing entirely, make empty data frame so we can 'bind_rows' later
-        ownShipTruth=data.frame(time=NA,lon=NA,lat=NA,uniqueID=NA,hoverText=NA,color=NA)
+        ownShipTruth=data.frame(time=NA,lon=NA,lat=NA,uniqueID=NA,hoverText=NA,drawColor=NA)
     }
 
 
@@ -124,12 +124,12 @@ plot_sensor_and_truth_data_plotly = function(scenario, useDefaultColors=FALSE, l
     #################################
 
     combinedData=bind_rows(list(targetTruth,sensorData,ownShipTruth)) %>% #combine all the data
-        na.omit() %>% #omit missing data (caused by entirely missing one of the dataframes)
+        stats::na.omit() %>% #omit missing data (caused by entirely missing one of the dataframes)
         mutate(uniqueID = as.factor(uniqueID)) #recast as factor for plotting
 
     #get the named colors
-    defaultPlatColors=combinedData %>% group_by(uniqueID) %>% slice(1) %>% ungroup() %>% select(color) #get the first row for each uniqueID and get the color
-    defaultPlatColors = c(defaultPlatColors$color)
+    defaultPlatColors=combinedData %>% group_by(uniqueID) %>% slice(1) %>% ungroup() %>% select(drawColor) #get the first row for each uniqueID and get the color
+    defaultPlatColors = c(defaultPlatColors$drawColor)
     colorNames=get_named_colors(scenario,levels(combinedData$uniqueID),defaultPlatColors,useDefaultColors=useDefaultColors)
 
 
