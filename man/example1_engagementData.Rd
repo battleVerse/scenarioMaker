@@ -4,7 +4,8 @@
 \name{example1_engagementData}
 \alias{example1_engagementData}
 \title{Engagement data for example 1}
-\format{A data frame with 13 observations and 6 variables:
+\format{
+A data frame with 13 observations and 6 variables:
 \describe{
   \item{time}{Time of weapon fire}
   \item{source}{Source originiating the shot}
@@ -13,7 +14,8 @@
   \item{color}{Color in which to plot the shot}
   \item{kill}{Flag for whether target was killed by shot (0 or 1)}
 
-}}
+}
+}
 \usage{
 example1_engagementData
 }

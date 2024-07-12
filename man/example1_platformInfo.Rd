@@ -4,14 +4,16 @@
 \name{example1_platformInfo}
 \alias{example1_platformInfo}
 \title{Platform info for example 1}
-\format{A data frame with 23 observations and 4 variables:
+\format{
+A data frame with 23 observations and 4 variables:
 \describe{
   \item{truthID}{Target ID for each measurement.  Factor.  Values are "A" through "H"}
   \item{platformIcon}{Icon used for each platform (Used by SIMDIS)}
   \item{platformType}{Type of platform (used by SIMDIS)}
   \item{trackColor}{Color of track}
 
-}}
+}
+}
 \usage{
 example1_platformInfo
 }

@@ -3,7 +3,6 @@
 \docType{package}
 \name{scenarioMaker}
 \alias{scenarioMaker}
-\alias{scenarioMaker-package}
 \title{scenarioMaker: A package for reconstructing sensor system tests and calculating helpful comparisons}
 \description{
 Hello and welcome to scenarioMaker, your first stop in the battleVerse!  scenarioMaker is a package designed to help you analyze sensor system performance by providing plots to reconstruct tests and calculators to find distances between targets, target aspects, much more.

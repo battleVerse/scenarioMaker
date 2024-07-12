@@ -4,7 +4,8 @@
 \name{example2_truthData}
 \alias{example2_truthData}
 \title{Truth data for example 2}
-\format{A data frame with 337 observations and 6 variables:
+\format{
+A data frame with 337 observations and 6 variables:
 \describe{
   \item{lat}{Latitude (degrees)}
   \item{lon}{Longitude (degrees)}
@@ -13,7 +14,8 @@
   \item{heading}{Target heading (degrees azimuth)}
   \item{truthID}{Target ID for each measurement.  Factor.  Values are "A" through "H"}
 
-}}
+}
+}
 \usage{
 example2_truthData
 }

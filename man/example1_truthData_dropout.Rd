@@ -4,7 +4,8 @@
 \name{example1_truthData_dropout}
 \alias{example1_truthData_dropout}
 \title{Truth data for example 1 (with data dropouts)}
-\format{A data frame with 4076 observations and 6 variables:
+\format{
+A data frame with 4076 observations and 6 variables:
 \describe{
   \item{lat}{Latitude (degrees)}
   \item{lon}{Longitude (degrees)}
@@ -13,7 +14,8 @@
   \item{heading}{Target heading (degrees azimuth)}
   \item{truthID}{Target ID for each measurement.  Factor.  Values are "A" through "H"}
 
-}}
+}
+}
 \usage{
 example1_truthData_dropout
 }

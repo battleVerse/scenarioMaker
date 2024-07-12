@@ -55,6 +55,8 @@
 #'  }
 #'
 #' @param preCalcTargetTrackDist (default=TRUE) if false, will not pre-calculate targetTrackDistance (which can be big and slow)
+#' @param preCalcTargetOwnShipDist (default=TRUE) if false, will not pre-calculate targetOwnShipDistance (which can be big and slow)
+#' @param preCalcTrackOwnShipDist (default=TRUE) if false, will not pre-calculate trackOwnShipDistance (which can be big and slow)
 #'
 #' @return Scenario file, which will include:
 #' \itemize{
@@ -83,7 +85,7 @@
 #' @export
 
 
-create_scenario = function(scenarioName="scenario",targetTruth=NA,ownShipTruth=NA,sensorData=NA,engagementData=NA,platformInfo=NA,verbose=TRUE,preCalcTargetTrackDist=TRUE){
+create_scenario = function(scenarioName="scenario",targetTruth=NA,ownShipTruth=NA,sensorData=NA,engagementData=NA,platformInfo=NA,verbose=TRUE,preCalcTargetTrackDist=TRUE,preCalcTargetOwnShipDist=TRUE, preCalcTrackOwnShipDist=TRUE){
 
 
     myScenario=list()
@@ -197,7 +199,7 @@ create_scenario = function(scenarioName="scenario",targetTruth=NA,ownShipTruth=N
         ### Let's make sure the user didn't accidentally include more than one platform in ownShipTruth ###
         if (length(unique(ownShipTruth$truthID)) > 1){
             listOfIDs=paste(unlist(unique(ownShipTruth$truthID)),collapse=", ")
-            s=sprintf('You cannot have more than one unique truthID in your ownShipTruth data. Your input data contained the following truthIDs: %s',listOfIDs)
+            s=sprintf('You must have one and exactly one truthID in your ownShipTruth data. Your input data contained the following truthIDs: %s',listOfIDs)
             stop(s)
 
         }
@@ -362,6 +364,9 @@ create_scenario = function(scenarioName="scenario",targetTruth=NA,ownShipTruth=N
     ### targetTrackDistance ###
     ###########################
     ### If we have targetTruth, ownShipTruth, and sensorData, we can calculate target_track_distance!
+    if (preCalcTargetTrackDist == FALSE){
+        cat("Skipping the target_track_distance calculation.\n")
+    }
     if ( is.data.frame(myScenario$targetTruth) && is.data.frame(myScenario$sensorData) && is.data.frame(myScenario$ownShipTruth) && (preCalcTargetTrackDist) ) {
 
         if (verbose) {cat("Calculating target_track_distance\n")}
@@ -379,8 +384,11 @@ create_scenario = function(scenarioName="scenario",targetTruth=NA,ownShipTruth=N
     #############################
     ### targetOwnShipDistance ###
     #############################
+    if (preCalcTargetOwnShipDist == FALSE){
+        cat("Skipping the target_ownship_distance calculation. This is a new feature and could cause problems.\n")
+    }
     ### If we have targetTruth and ownShipTruth, we can calculate target_ownship_distance!
-    if ( is.data.frame(myScenario$targetTruth) && is.data.frame(myScenario$ownShipTruth) ) {
+    if ( is.data.frame(myScenario$targetTruth) && is.data.frame(myScenario$ownShipTruth) && (preCalcTargetOwnShipDist)) {
 
         if (verbose) {cat("Calculating target_ownship_distance\n")}
 
@@ -406,8 +414,12 @@ create_scenario = function(scenarioName="scenario",targetTruth=NA,ownShipTruth=N
     ############################
     ### trackOwnShipDistance ###
     ############################
+    if (preCalcTrackOwnShipDist == FALSE){
+        cat("Skipping the track_ownship_distance calculation. Skipping is a new feature and could cause problems.\n")
+    }
+
     ### If we have sensorData and ownShipTruth, we can calculate track_ownship_distance!
-    if ( is.data.frame(myScenario$sensorData) && is.data.frame(myScenario$ownShipTruth) ) {
+    if ( is.data.frame(myScenario$sensorData) && is.data.frame(myScenario$ownShipTruth) &&  (preCalcTrackOwnShipDist) ) {
 
         if (verbose) {cat("Calculating track_ownship_distance\n")}
 
@@ -427,7 +439,7 @@ create_scenario = function(scenarioName="scenario",targetTruth=NA,ownShipTruth=N
         myScenario[['trackOwnShipDistance']] = NA
     }
 
-
+    myScenario[['scenarioMakerVersion']] = getNamespaceVersion("scenarioMaker")[[1]]
 
 
     t=sprintf("\nFinished Creating Scenario: \"%s\"\n",myScenario$scenarioName)

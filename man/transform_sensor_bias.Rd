@@ -4,8 +4,13 @@
 \alias{transform_sensor_bias}
 \title{Transform sensor bias}
 \usage{
-transform_sensor_bias(ownShipData, sensorData, biasBearing = 0,
-  biasRange = 0, biasAlt = 0)
+transform_sensor_bias(
+  ownShipData,
+  sensorData,
+  biasBearing = 0,
+  biasRange = 0,
+  biasAlt = 0
+)
 }
 \arguments{
 \item{ownShipData}{data frame containing all of the truth position of the sensor system (likely from GPS or land-based radar systems). This may be ownship if testing something on a ship or the lat/lon position of a stationary ststem. MUST have the following columns (but can have more, for example heading and truthID):

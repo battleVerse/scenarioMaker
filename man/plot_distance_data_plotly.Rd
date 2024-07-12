@@ -4,8 +4,11 @@
 \alias{plot_distance_data_plotly}
 \title{Plot distance data with plotly}
 \usage{
-plot_distance_data_plotly(scenario, useDefaultColors = FALSE,
-  legendOnly = FALSE)
+plot_distance_data_plotly(
+  scenario,
+  useDefaultColors = FALSE,
+  legendOnly = FALSE
+)
 }
 \arguments{
 \item{scenario}{must contain the output of target_ownship_distance() as a named object in the scenario list with the name "targetOwnShipDistance".  If you originally ran create_scenario() with both own ship data and target truth data then this should already be in the scenario.}

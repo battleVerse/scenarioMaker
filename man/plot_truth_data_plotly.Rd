@@ -4,8 +4,7 @@
 \alias{plot_truth_data_plotly}
 \title{Plot truth data with plotly}
 \usage{
-plot_truth_data_plotly(scenario, useDefaultColors = FALSE,
-  legendOnly = FALSE)
+plot_truth_data_plotly(scenario, useDefaultColors = FALSE, legendOnly = FALSE)
 }
 \arguments{
 \item{scenario}{must contain either or both: targetTruth, ownShipTruth}

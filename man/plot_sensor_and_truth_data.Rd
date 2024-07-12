@@ -4,8 +4,16 @@
 \alias{plot_sensor_and_truth_data}
 \title{Plot both sensor and truth data}
 \usage{
-plot_sensor_and_truth_data(scenario, offset = 0.01, textSize = 3,
-  hideLegend = FALSE, useDefaultColors = FALSE)
+plot_sensor_and_truth_data(
+  scenario,
+  offset = 0.01,
+  textSize = 3,
+  lineWidth = 1,
+  pointSize = 1,
+  hideLegend = FALSE,
+  hideLabels = FALSE,
+  useDefaultColors = FALSE
+)
 }
 \arguments{
 \item{scenario}{MUST contain one of: targetTruth, ownShipTruth, and sensorData}
@@ -14,7 +22,13 @@ plot_sensor_and_truth_data(scenario, offset = 0.01, textSize = 3,
 
 \item{textSize}{(default = 3) size of label text}
 
+\item{lineWidth}{width of the truth data lines (default=1)}
+
+\item{pointSize}{point size of the truth data lines (default=1) (setting it to 0 turns off the points completely)}
+
 \item{hideLegend}{hides the legend to make the graph easier to read (default=FALSE)}
+
+\item{hideLabels}{hides the legend to make the graph easier to read (default=FALSE)}
 
 \item{useDefaultColors}{(default=FALSE) if you DO have platformInfo filled in, but want to ignore the colors and use defaults, set this to true}
 }

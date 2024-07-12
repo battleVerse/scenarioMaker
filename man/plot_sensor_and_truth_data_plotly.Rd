@@ -4,8 +4,11 @@
 \alias{plot_sensor_and_truth_data_plotly}
 \title{Plot both sensor and truth data with plotly}
 \usage{
-plot_sensor_and_truth_data_plotly(scenario, useDefaultColors = FALSE,
-  legendOnly = FALSE)
+plot_sensor_and_truth_data_plotly(
+  scenario,
+  useDefaultColors = FALSE,
+  legendOnly = FALSE
+)
 }
 \arguments{
 \item{scenario}{MUST contain one of: targetTruth, ownShipTruth, and sensorData}

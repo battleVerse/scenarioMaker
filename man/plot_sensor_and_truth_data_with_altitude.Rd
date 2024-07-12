@@ -4,8 +4,7 @@
 \alias{plot_sensor_and_truth_data_with_altitude}
 \title{Plot both sensor and truth data with altitude}
 \usage{
-plot_sensor_and_truth_data_with_altitude(scenario, offset = 0.01,
-  textSize = 3)
+plot_sensor_and_truth_data_with_altitude(scenario, offset = 0.01, textSize = 3)
 }
 \arguments{
 \item{scenario}{MUST contain targetTruth, ownShipTruth, and sensorData}

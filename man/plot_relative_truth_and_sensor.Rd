@@ -4,8 +4,14 @@
 \alias{plot_relative_truth_and_sensor}
 \title{Plot truth and/or sensor data relative to ownship}
 \usage{
-plot_relative_truth_and_sensor(scenario, offset = 1, textSize = 3,
-  hideLegend = FALSE, useDefaultColors = FALSE, plotWhich = "both")
+plot_relative_truth_and_sensor(
+  scenario,
+  offset = 1,
+  textSize = 3,
+  hideLegend = FALSE,
+  useDefaultColors = FALSE,
+  plotWhich = "both"
+)
 }
 \arguments{
 \item{scenario}{must contain either or both: targetOwnshipDistance, trackOwnshipDistance}

@@ -4,7 +4,8 @@
 \name{example1_sensorData}
 \alias{example1_sensorData}
 \title{Sensor data for example 1}
-\format{A data frame with 2312 observations and 5 variables:
+\format{
+A data frame with 2312 observations and 5 variables:
 \describe{
   \item{lat}{Latitude (degrees)}
   \item{lon}{Longitude (degrees)}
@@ -12,7 +13,8 @@
   \item{alt}{Altitude (meters)}
   \item{trackNum}{Track ID (factor)}
 
-}}
+}
+}
 \usage{
 example1_sensorData
 }

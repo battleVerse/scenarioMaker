@@ -1,7 +1,7 @@
 Package: scenarioMaker
 Type: Package
 Title: Build scenarios for the battleVerse
-Version: 0.2
+Version: 0.2.1
 Date: 2018-03-19
 Authors@R: c(
   person('Benjamin','Ashwell',email='bashwell@ida.org',role=c('cre','aut')),
@@ -26,6 +26,6 @@ Imports:
     viridis,
     purrr,
     geosphere
-RoxygenNote: 6.0.1
+RoxygenNote: 7.2.3
 URL: https://github.com/battleVerse/scenarioMaker
 BugReports: https://github.com/battleVerse/scenarioMaker/issues

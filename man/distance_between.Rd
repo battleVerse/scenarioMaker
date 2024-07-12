@@ -4,8 +4,7 @@
 \alias{distance_between}
 \title{Get distance info between specified targets at specified times}
 \usage{
-distance_between(scenario, timeList, ownShipList, targetList,
-  windowScale = 20)
+distance_between(scenario, timeList, ownShipList, targetList, windowScale = 20)
 }
 \arguments{
 \item{scenario}{names list as created by create_scenario.  Must contain either or both: targetTruth, ownShipTruth.  Between these two data frames there must be a minimum of two targets to have enough targets to calculate a distance between them.}

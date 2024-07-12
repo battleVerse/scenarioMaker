@@ -4,7 +4,8 @@
 \name{example2_ownShipData}
 \alias{example2_ownShipData}
 \title{Ownship data for example 2}
-\format{A data frame with 300 observations and 6 variables:
+\format{
+A data frame with 300 observations and 6 variables:
 \describe{
   \item{lat}{Latitude (degrees)}
   \item{lon}{Longitude (degrees)}
@@ -13,7 +14,8 @@
   \item{heading}{Ownship heading (degrees azimuth)}
   \item{truthID}{Ownship ID is just "USS Good Guy" in every row (factor)}
 
-}}
+}
+}
 \usage{
 example2_ownShipData
 }

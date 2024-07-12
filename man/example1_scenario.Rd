@@ -4,7 +4,8 @@
 \name{example1_scenario}
 \alias{example1_scenario}
 \title{Example 1 scenario}
-\format{A named list of 9 elements containing:
+\format{
+A named list of 9 elements containing:
 \describe{
   \item{scenarioName}{Scenario name (string)}
   \item{sensorData}{see help page for example1_sensorData for more details}
@@ -16,7 +17,8 @@
   \item{targetOwnShipDistance}{Calculated from targetTruth and ownShipTruth using the function target_ownship_distance().  See help page for target_ownship_distance() for more details}
   \item{trackOwnShipDistance}{Calculated from sensorData and ownShipTruth using the function track_ownship_distance().  See help page for track_ownship_distance() for more details}
 
-}}
+}
+}
 \usage{
 example1_scenario
 }

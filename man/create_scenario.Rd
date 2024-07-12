@@ -4,9 +4,18 @@
 \alias{create_scenario}
 \title{Creates scenario}
 \usage{
-create_scenario(scenarioName = "scenario", targetTruth = NA,
-  ownShipTruth = NA, sensorData = NA, engagementData = NA,
-  platformInfo = NA, verbose = TRUE, preCalcTargetTrackDist = TRUE)
+create_scenario(
+  scenarioName = "scenario",
+  targetTruth = NA,
+  ownShipTruth = NA,
+  sensorData = NA,
+  engagementData = NA,
+  platformInfo = NA,
+  verbose = TRUE,
+  preCalcTargetTrackDist = TRUE,
+  preCalcTargetOwnShipDist = TRUE,
+  preCalcTrackOwnShipDist = TRUE
+)
 }
 \arguments{
 \item{scenarioName}{name of scenario}
@@ -61,6 +70,10 @@ create_scenario(scenarioName = "scenario", targetTruth = NA,
 \item{verbose}{(default=TRUE)}
 
 \item{preCalcTargetTrackDist}{(default=TRUE) if false, will not pre-calculate targetTrackDistance (which can be big and slow)}
+
+\item{preCalcTargetOwnShipDist}{(default=TRUE) if false, will not pre-calculate targetOwnShipDistance (which can be big and slow)}
+
+\item{preCalcTrackOwnShipDist}{(default=TRUE) if false, will not pre-calculate trackOwnShipDistance (which can be big and slow)}
 }
 \value{
 Scenario file, which will include:

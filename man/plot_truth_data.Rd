@@ -4,17 +4,31 @@
 \alias{plot_truth_data}
 \title{Plot truth data}
 \usage{
-plot_truth_data(scenario, offset = 0.01, textSize = 3, hideLegend = FALSE,
-  useDefaultColors = FALSE)
+plot_truth_data(
+  scenario,
+  offset = 0.01,
+  textSize = 3,
+  lineWidth = 1,
+  pointSize = 1,
+  hideLegend = FALSE,
+  hideLabels = FALSE,
+  useDefaultColors = FALSE
+)
 }
 \arguments{
 \item{scenario}{must contain either or both: targetTruth, ownShipTruth}
 
-\item{offset}{amount to offset labels (in degrees latitude)}
+\item{offset}{amount to offset labels (in degrees latitude) (default=0.01)}
 
-\item{textSize}{size of label text}
+\item{textSize}{size of label text (default=3)}
+
+\item{lineWidth}{width of the truth data lines (default=1)}
+
+\item{pointSize}{point size of the truth data lines (default=1) (setting it to 0 turns off the points completely)}
 
 \item{hideLegend}{hides the legend to make the graph easier to read (default=FALSE)}
+
+\item{hideLabels}{hides the legend to make the graph easier to read (default=FALSE)}
 
 \item{useDefaultColors}{(default=FALSE) if you DO have platformInfo filled in, but want to ignore the colors and use defaults, set this to true}
 }
